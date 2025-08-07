@@ -1,0 +1,320 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0a0a0a;
+  color: white;
+}
+
+header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;        /* allow wrapping */
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #101820;
+  border-bottom: 2px solid #00aaff;
+  z-index: 1000;
+  box-sizing: border-box; /* include padding in width */
+}
+
+header nav {
+  display: flex;
+  flex: 1 1 auto;        /* grow and shrink */
+  flex-wrap: wrap;       /* wrap links onto next line */
+  justify-content: flex-end;
+  gap: 1rem;
+  min-width: 0;          /* allow it to shrink below content size */
+}
+
+header nav a {
+  margin: 0;
+  white-space: nowrap;   /* keep each link’s text together */
+}
+
+.logo {
+  height: 50px;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #00aaff;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  animation: slideUp 0.8s ease;
+  padding-top: calc(1rem + 2px + 1em + 1rem); 
+}
+
+.game-logo {
+  display: block;
+  max-width: 300px;
+  margin: 0 auto 2rem;
+}
+
+.owner-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* center horizontally */
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.owner-container {
+  position: relative;
+  display: inline-block;
+}
+
+.owner-photo {
+  display: block;
+  width: 150px;         /* your original size */
+  border-radius: 50%;
+}
+
+.mini-character {
+  position: absolute;
+  bottom: 57px;         /* tweak position for exact placement */
+  right: 17px;
+  width: 55px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dialogue-bubble {
+  position: absolute;
+  bottom: 105px;         /* above character */
+  right: -70px;
+  background: white;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  max-width: 60px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.owner-container:hover .mini-character,
+.owner-container:hover .dialogue-bubble {
+  opacity: 1;
+}
+
+.message {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.creator-tag {
+  text-align: center;
+  font-style: italic;
+  color: #cccccc;
+  margin-top: 1rem;
+}
+
+.updates .post {
+  background: #1a1a1a;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid #00aaff;
+}
+
+.codes ul, .contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.codes li, .contact li {
+  margin: 0.5rem 0;
+  background: #1a1a1a;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.disclaimer {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #aaaaaa;
+}
+
+/* Social icons row */
+.socials ul {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.socials li a {
+  font-size: 2.5rem;
+  color: #00aaff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.socials li a:hover {
+  transform: scale(1.2);
+  color: #ffffff;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Team card grid */
+.team-photo-large {
+  display: block;
+  height: 150px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 1rem auto;
+}
+
+.team-photo {
+  display: block;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  margin: 1rem auto;
+}
+
+.contact .team ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.contact .team li {
+  background: #1a1a1a;
+  padding: 1.2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact .team li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+}
+
+.contact .team h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.contact .team .role {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: #00aaff;
+}
+
+footer {
+  background: #101820;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+  border-top: 2px solid #00aaff;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+.creators {
+  text-align: center;
+  padding: 2rem;
+}
+
+.creator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.creator-card {
+  background: #1a1a1a;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.creator-card:hover {
+  transform: translateY(-5px);
+}
+
+.creator-card img {
+  width: 64px;
+  border-radius: 6px;
+}
+
+.creator-card h3 {
+  margin: 0.5rem 0;
+}
+
+.creator-socials {
+  margin-top: 0.5rem;
+}
+
+.creator-socials a {
+  margin: 0 0.3rem;
+  font-size: 1.5rem;
+  color: #00aaff;
+  transition: color 0.3s ease;
+}
+
+.creator-socials a:hover {
+  color: #ffffff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  header nav a {
+    font-size: 0.85rem;
+    padding: 0.2rem 0.4rem;
+  }
+}
